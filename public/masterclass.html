@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Masterclass Sous-Loc Airbnb 2026 — Rentimmo Academy</title>
+<meta name="description" content="Découvre la stratégie sous-location pro et conciergerie Airbnb que j'applique en France et à l'étranger depuis 6+ ans. Sans crédit, sans apport, halal-friendly. Présentation offerte par Marwan AFASSI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-600: #2DB84B;
+  --green-700: #1A6B33;
+  --green-300: #5FD87A;
+  --ink: #1A1A1A;
+  --ink-soft: #2D2D2D;
+  --muted: #6B6B6B;
+  --cream: #F7F6F2;
+  --cream-dark: #EDEAE0;
+  --white: #FFFFFF;
+  --shadow-md: 0 8px 24px rgba(26,107,51,.08);
+  --shadow-lg: 0 24px 60px rgba(26,107,51,.16);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 17px;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; text-decoration:none; }
+
+/* ========== TOP BAR ========== */
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid rgba(26,26,26,.06);
+  padding: 14px 24px;
+}
+.topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display:flex; align-items:center; gap:10px;
+  font-weight:800; letter-spacing:-.01em;
+}
+.brand-mark {
+  width:32px; height:32px; border-radius:8px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:800; font-size:14px;
+}
+.brand-name { font-size:16px; }
+.brand-name span { color: var(--green-600); }
+.qualiopi-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background: var(--cream);
+  padding: 6px 12px; border-radius: 999px;
+  font-size:12px; font-weight:700; color: var(--ink-soft);
+  border: 1px solid rgba(26,107,51,.12);
+}
+.qualiopi-badge::before { content:"✓"; color: var(--green-600); font-weight:900; }
+
+/* ========== HERO ========== */
+.hero {
+  padding: 64px 24px 48px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+}
+.hero-inner {
+  max-width: 980px; margin: 0 auto; text-align: center;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(45,184,75,.1);
+  color: var(--green-700);
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background: var(--green-600); box-shadow: 0 0 0 4px rgba(45,184,75,.2);
+}
+h1 {
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+h1 .highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(95,216,122,.45) 60%);
+  padding: 0 4px;
+}
+.hero-sub {
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--muted);
+  max-width: 720px; margin: 0 auto 32px;
+}
+.hero-stats {
+  display:flex; flex-wrap:wrap; justify-content:center; gap: 32px;
+  margin: 32px 0 8px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(26,26,26,.08);
+  border-bottom: 1px solid rgba(26,26,26,.08);
+}
+.stat {
+  text-align: center;
+}
+.stat-num {
+  font-size: 28px; font-weight: 800; color: var(--green-700);
+  letter-spacing: -.02em;
+}
+.stat-label {
+  font-size: 13px; color: var(--muted); margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ========== VIDEO ========== */
+.video-section {
+  padding: 0 24px 32px;
+}
+.video-wrap {
+  max-width: 980px; margin: 0 auto;
+  position: relative;
+  background: var(--ink);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16/9;
+}
+.video-wrap iframe,
+.video-wrap video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.video-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: var(--cream);
+  background: linear-gradient(135deg, var(--green-700), var(--ink));
+  text-align: center; padding: 24px;
+}
+.play-circle {
+  width:96px; height:96px; border-radius:50%;
+  background: rgba(255,255,255,.95);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+.play-circle:hover { transform: scale(1.05); }
+.play-circle::before {
+  content:""; width: 0; height: 0;
+  border-left: 28px solid var(--green-700);
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  margin-left: 6px;
+}
+
+/* ========== CTA PRIMARY ========== */
+.cta-section {
+  padding: 56px 24px;
+  text-align: center;
+}
+.cta-card {
+  max-width: 640px; margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(26,107,51,.08);
+}
+.cta-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800; letter-spacing: -.02em;
+  margin-bottom: 12px;
+}
+.cta-desc {
+  color: var(--muted); margin-bottom: 28px;
+  font-size: 16px;
+}
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: 14px;
+  font-family: inherit; font-weight: 800; font-size: 17px;
+  letter-spacing: -.005em;
+  cursor: pointer;
+  border: 0;
+  transition: transform .15s ease, box-shadow .25s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(45,184,75,.32);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(45,184,75,.42); }
+.btn-large { padding: 22px 40px; font-size: 18px; }
+.btn-block { width: 100%; }
+
+.btn-meta {
+  display:flex; gap: 16px; justify-content:center;
+  margin-top: 18px;
+  font-size: 13px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.btn-meta span { display:inline-flex; align-items:center; gap:6px; }
+.btn-meta span::before {
+  content:"✓"; color: var(--green-600); font-weight: 900;
+}
+
+/* ========== LEARN ========== */
+.learn {
+  padding: 64px 24px;
+  background: var(--white);
+}
+.section-inner { max-width: 980px; margin: 0 auto; }
+.section-title {
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 800; letter-spacing: -.025em;
+  text-align: center; margin-bottom: 12px;
+}
+.section-sub {
+  text-align: center; color: var(--muted);
+  font-size: 17px; margin-bottom: 48px;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.learn-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.learn-card {
+  background: var(--cream);
+  border-radius: 18px;
+  padding: 28px 24px;
+  border: 1px solid rgba(26,107,51,.08);
+  transition: transform .2s ease;
+}
+.learn-card:hover { transform: translateY(-4px); }
+.learn-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  color: #fff; border-radius: 12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 22px; font-weight: 800;
+  margin-bottom: 16px;
+}
+.learn-card h3 {
+  font-size: 18px; font-weight: 800;
+  margin-bottom: 8px; letter-spacing: -.01em;
+}
+.learn-card p {
+  font-size: 15px; color: var(--muted); line-height: 1.55;
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials {
+  padding: 64px 24px;
+  background: var(--cream);
+}
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.testimonial {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-md);
+}
+.stars { color: var(--green-600); margin-bottom: 12px; font-size: 14px; }
+.quote {
+  font-size: 16px; line-height: 1.6;
+  color: var(--ink-soft); margin-bottom: 20px;
+  font-weight: 500;
+}
+.author {
+  display:flex; align-items:center; gap: 12px;
+}
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  color: #fff; font-weight: 800;
+  display:flex; align-items:center; justify-content:center;
+}
+.author-name { font-weight: 700; font-size: 14px; }
+.author-meta { font-size: 12px; color: var(--muted); }
+
+/* ========== FINAL CTA ========== */
+.final-cta {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, var(--green-700), var(--ink));
+  color: #fff; text-align: center;
+}
+.final-cta h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800; letter-spacing: -.025em;
+  margin-bottom: 16px; line-height: 1.1;
+}
+.final-cta p {
+  color: rgba(255,255,255,.78);
+  font-size: 18px; margin-bottom: 32px;
+  max-width: 560px; margin-left: auto; margin-right: auto;
+}
+.btn-secondary-light {
+  background: #fff;
+  color: var(--green-700);
+  box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+.btn-secondary-light:hover { transform: translateY(-2px); }
+.final-cta .btn-meta { color: rgba(255,255,255,.6); }
+.final-cta .btn-meta span::before { color: var(--green-300); }
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 32px 24px;
+  background: var(--ink);
+  color: rgba(255,255,255,.6);
+  text-align: center;
+  font-size: 13px;
+}
+.footer-brand {
+  color: #fff; font-weight: 700; margin-bottom: 4px;
+}
+
+@media (max-width: 720px) {
+  .hero { padding: 40px 20px 32px; }
+  .video-section, .cta-section, .learn, .testimonials, .final-cta { padding-left: 20px; padding-right: 20px; }
+  .hero-stats { gap: 18px; padding: 18px 0; }
+  .stat-num { font-size: 22px; }
+  .cta-card { padding: 28px 22px; }
+  .topbar-inner .qualiopi-badge { font-size: 11px; padding: 5px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-name">Rentimmo <span>Academy</span></div>
+    </div>
+    <div class="qualiopi-badge">Organisme QUALIOPI</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Présentation offerte · accès immédiat</div>
+    <h1>
+      Sous-location & conciergerie Airbnb : <span class="highlight">la méthode que j'applique depuis 6 ans</span>
+    </h1>
+    <p class="hero-sub">
+      Sans crédit conventionnel · sans apport · halal-friendly · validée en France comme à l'étranger sur des dizaines de logements
+    </p>
+    <a href="#video" class="btn btn-primary btn-large">▶ Lancer la masterclass maintenant</a>
+    <div class="btn-meta" style="margin-top:14px;">
+      <span>Accès immédiat</span>
+      <span>0€</span>
+      <span>Sans inscription requise</span>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">+6 ans</div>
+        <div class="stat-label">d'expérience terrain</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Dizaines</div>
+        <div class="stat-label">de logements gérés</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">FR + 🌍</div>
+        <div class="stat-label">France et étranger</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">QUALIOPI</div>
+        <div class="stat-label">organisme certifié</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/QyzwMPk_4yY?rel=0&modestbranding=1&controls=1&playsinline=1"
+      title="Masterclass Sous-Location Airbnb — Rentimmo Academy"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- CTA PRIMARY -->
+<section class="cta-section">
+  <div class="cta-card">
+    <div class="cta-title">📞 Tu veux passer à l'action maintenant ?</div>
+    <p class="cta-desc">
+      Réserve 30 min avec Marwan. On regarde ta situation, et on voit ensemble si la formation peut t'accompagner.
+    </p>
+    <a href="https://cal.com/rentimmo-academy/appel-strategique" class="btn btn-primary btn-large btn-block">
+      Réserver mon appel stratégique offert
+    </a>
+    <div class="btn-meta">
+      <span>30 minutes</span>
+      <span>Sans engagement</span>
+      <span>Réponse perso</span>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="learn">
+  <div class="section-inner">
+    <h2 class="section-title">Ce que tu vas apprendre</h2>
+    <p class="section-sub">4 piliers concrets, chiffres réels, méthode validée terrain</p>
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="learn-icon">1</div>
+        <h3>Trouver ton premier bail commercial</h3>
+        <p>La méthode pour détecter, négocier et sécuriser un bail dans une zone rentable, en 14 jours.</p>
+      </div>
+      <div class="learn-card">
+        <div class="learn-icon">2</div>
+        <h3>Calculer la rentabilité en 90 secondes</h3>
+        <p>La formule simple que j'utilise pour valider ou rejeter un appart. Zéro tableur compliqué.</p>
+      </div>
+      <div class="learn-card">
+        <div class="learn-icon">3</div>
+        <h3>Lancer sans crédit ni apport</h3>
+        <p>Le modèle 100% halal qui démarre avec 2 000-4 000€. Pas de banque conventionnelle, pas de riba.</p>
+      </div>
+      <div class="learn-card">
+        <div class="learn-icon">4</div>
+        <h3>Automatiser pour ne pas y passer tes nuits</h3>
+        <p>Ma stack tech (gratuite et payante) pour gérer plusieurs logements à distance, sans répondre aux clients à 3h du matin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <h2 class="section-title">Ils sont passés à l'action</h2>
+    <p class="section-sub">Témoignages réels de la communauté Rentimmo Academy</p>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"+1 200€/mois nets en 3 mois grâce à la méthode Marwan. Le module sur la négo bail commercial vaut à lui seul l'investissement."</p>
+        <div class="author">
+          <div class="author-avatar">K</div>
+          <div>
+            <div class="author-name">Karim B.</div>
+            <div class="author-meta">Ex-ingénieur · Toulouse</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"Je suis passé de 65% à 92% de taux d'occupation sur mes 2 Airbnb. Marwan ne raconte pas du blabla, il montre les chiffres."</p>
+        <div class="author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Sami L.</div>
+            <div class="author-meta">Hôte Airbnb · Lyon</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"Reconvertie de l'e-commerce vers la sous-loc. 6 mois après, je dégage un vrai second salaire en restant 100% halal. Merci."</p>
+        <div class="author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Aïcha R.</div>
+            <div class="author-meta">Reconversion · Paris</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-inner">
+    <h2>Tu hésites encore ?<br>Parle-moi 30 minutes.</h2>
+    <p>Si la sous-loc ou la conciergerie est faite pour toi, je te le dirai. Si elle ne l'est pas, je te le dirai aussi. Honnête, direct, gratuit.</p>
+    <a href="https://cal.com/rentimmo-academy/appel-strategique" class="btn btn-secondary-light btn-large">
+      Réserver mon appel stratégique offert →
+    </a>
+    <div class="btn-meta">
+      <span>30 min</span>
+      <span>0€</span>
+      <span>Sans engagement</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Rentimmo Academy</div>
+  <div>Marwan AFASSI · Organisme de formation certifié QUALIOPI · © 2026</div>
+</footer>
+
+<!-- EXIT INTENT MODAL — déclenche si VSP visionnée >= 50% -->
+<style>
+.exit-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.65);
+  display: none; align-items: center; justify-content: center;
+  z-index: 9999; padding: 20px;
+  animation: efadein .25s ease;
+}
+.exit-modal.show { display: flex; }
+@keyframes efadein { from { opacity:0; } to { opacity:1; } }
+.exit-content {
+  background: white; border-radius: 24px;
+  max-width: 540px; width: 100%; overflow: hidden;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,.4);
+  animation: eslidein .35s ease;
+}
+@keyframes eslidein { from { transform: translateY(40px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+.exit-content::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--green-700), var(--green-300));
+}
+.exit-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px;
+  background: rgba(0,0,0,.06);
+  border: 0; border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px; color: var(--ink-soft);
+  display: flex; align-items: center; justify-content: center;
+}
+.exit-close:hover { background: rgba(0,0,0,.12); }
+.exit-body { padding: 48px 36px 36px; text-align: center; }
+.exit-eyebrow {
+  display: inline-block; padding: 6px 14px;
+  background: rgba(245, 158, 11, .15); color: #B45309;
+  border-radius: 999px; font-size: 12px; font-weight: 700;
+  letter-spacing: .04em; margin-bottom: 16px;
+}
+.exit-title {
+  font-size: 26px; font-weight: 800;
+  letter-spacing: -.02em; line-height: 1.15;
+  margin-bottom: 12px;
+}
+.exit-desc {
+  color: var(--muted); font-size: 16px;
+  margin-bottom: 28px; line-height: 1.55;
+}
+.exit-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 32px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: white; border-radius: 14px;
+  font-weight: 800; font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(45,184,75,.32);
+  transition: transform .15s ease;
+}
+.exit-cta:hover { transform: translateY(-2px); }
+.exit-trust {
+  margin-top: 14px; font-size: 12px; color: var(--muted);
+  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+}
+.exit-trust span::before { content: "✓"; color: var(--green-600); margin-right: 4px; font-weight: 900; }
+</style>
+
+<div class="exit-modal" id="exitModal">
+  <div class="exit-content">
+    <button class="exit-close" onclick="closeExitModal()" aria-label="Fermer">×</button>
+    <div class="exit-body">
+      <div class="exit-eyebrow">⚡ ATTENDS — 1 SECONDE</div>
+      <div class="exit-title">Tu as vu la masterclass.<br>Maintenant, parle-moi 30 minutes.</div>
+      <p class="exit-desc">Si la sous-loc ou la conciergerie est faite pour toi, je te le dirai. Sinon, je te le dirai aussi. Honnête, direct, gratuit.</p>
+      <a href="https://cal.com/rentimmo-academy/appel-strategique" class="exit-cta" target="_blank" rel="noopener">
+        Réserver mon appel stratégique offert →
+      </a>
+      <div class="exit-trust">
+        <span>30 min</span>
+        <span>0€</span>
+        <span>Sans engagement</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Track YouTube progress + exit intent (only fires if >= 50% watched) -->
+<script>
+(function() {
+  let watchedFraction = 0;
+  let exitModalShown = false;
+  let player = null;
+  let progressInterval = null;
+
+  // Ensure iframe has enablejsapi=1 BEFORE YT API loads
+  const iframe = document.querySelector('iframe[src*="youtube.com/embed/"]');
+  if (iframe && !iframe.src.includes('enablejsapi=1')) {
+    iframe.src = iframe.src + (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
+  }
+
+  // Load YouTube IFrame API
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.body.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = function() {
+    const iframe2 = document.querySelector('iframe[src*="youtube.com/embed/"]');
+    if (!iframe2) return;
+    try {
+      player = new YT.Player(iframe2, {
+        events: {
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING) startTracking();
+          }
+        }
+      });
+    } catch (err) {}
+  };
+
+  function startTracking() {
+    if (progressInterval) return;
+    progressInterval = setInterval(() => {
+      if (!player || !player.getDuration) return;
+      try {
+        const dur = player.getDuration();
+        const cur = player.getCurrentTime();
+        if (dur > 0) {
+          const f = cur / dur;
+          if (f > watchedFraction) watchedFraction = f;
+        }
+      } catch (err) {}
+    }, 1000);
+  }
+
+  function maybeShowExit() {
+    if (exitModalShown) return;
+    if (watchedFraction < 0.5) return;
+    exitModalShown = true;
+    document.getElementById('exitModal').classList.add('show');
+  }
+
+  // Desktop : souris quitte par le haut
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) maybeShowExit();
+  });
+
+  // Mobile : changement de visibilité
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      setTimeout(() => {
+        if (document.visibilityState === 'visible') maybeShowExit();
+      }, 100);
+    }
+  });
+
+  // Mobile : bouton retour navigateur
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', () => {
+    if (watchedFraction >= 0.5 && !exitModalShown) {
+      history.pushState(null, '', location.href);
+      maybeShowExit();
+    }
+  });
+
+  // Auto-show si > 90% vu
+  setInterval(() => {
+    if (watchedFraction >= 0.9 && !exitModalShown) maybeShowExit();
+  }, 3000);
+
+  window.closeExitModal = function() {
+    document.getElementById('exitModal').classList.remove('show');
+  };
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Masterclass Sous-Location & Conciergerie Airbnb — Rentimmo Academy</title>
+<meta name="description" content="Découvre la stratégie sous-location et conciergerie Airbnb que j'applique en France et à l'étranger depuis 6+ ans. Sans crédit, sans apport, halal-friendly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-600: #2DB84B;
+  --green-700: #1A6B33;
+  --green-300: #5FD87A;
+  --ink: #1A1A1A;
+  --ink-soft: #2D2D2D;
+  --muted: #6B6B6B;
+  --cream: #F7F6F2;
+  --cream-dark: #EDEAE0;
+  --white: #FFFFFF;
+  --shadow-md: 0 8px 24px rgba(26,107,51,.08);
+  --shadow-lg: 0 24px 60px rgba(26,107,51,.16);
+  --shadow-xl: 0 40px 80px rgba(26,107,51,.22);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 17px;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; text-decoration:none; }
+
+/* TOPBAR */
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid rgba(26,26,26,.06);
+  padding: 14px 24px;
+}
+.topbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display:flex; align-items:center; gap:10px;
+  font-weight:800; letter-spacing:-.01em;
+}
+.brand-mark {
+  width:32px; height:32px; border-radius:8px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:800; font-size:14px;
+}
+.brand-name { font-size:16px; }
+.brand-name span { color: var(--green-600); }
+.qualiopi-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background: var(--cream);
+  padding: 6px 12px; border-radius: 999px;
+  font-size:12px; font-weight:700; color: var(--ink-soft);
+  border: 1px solid rgba(26,107,51,.12);
+}
+.qualiopi-badge::before { content:"✓"; color: var(--green-600); font-weight:900; }
+
+/* HERO with FORM */
+.hero {
+  padding: 56px 24px 80px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+}
+.hero-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: center;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  background: rgba(45,184,75,.1);
+  color: var(--green-700);
+  padding: 8px 16px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background: var(--green-600); box-shadow: 0 0 0 4px rgba(45,184,75,.2);
+}
+h1 {
+  font-size: clamp(30px, 4.4vw, 50px);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+h1 .highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(95,216,122,.45) 60%);
+  padding: 0 4px;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.5vw, 18px);
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.hero-bullets {
+  list-style: none; padding: 0; margin: 24px 0 0;
+  display: grid; gap: 12px;
+}
+.hero-bullets li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 16px; color: var(--ink-soft); font-weight: 500;
+}
+.hero-bullets li::before {
+  content: "✓";
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  background: var(--green-600);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900;
+  margin-top: 1px;
+}
+
+/* FORM CARD */
+.form-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(26,107,51,.08);
+  position: relative;
+  overflow: hidden;
+}
+.form-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--green-700), var(--green-300));
+}
+.form-eyebrow {
+  display: inline-block;
+  background: rgba(45,184,75,.12); color: var(--green-700);
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.form-title {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -.02em; margin-bottom: 8px;
+  line-height: 1.2;
+}
+.form-desc {
+  color: var(--muted); font-size: 15px;
+  margin-bottom: 24px;
+}
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px; font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(26,26,26,.12);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--cream);
+  transition: border-color .15s ease, background .15s ease;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--green-600);
+  background: var(--white);
+}
+.form-group input.error {
+  border-color: #DC2626;
+}
+.error-msg {
+  display: none; color: #DC2626;
+  font-size: 12px; margin-top: 4px; font-weight: 600;
+}
+.error-msg.show { display: block; }
+.btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: 14px;
+  font-family: inherit; font-weight: 800; font-size: 17px;
+  letter-spacing: -.005em;
+  cursor: pointer;
+  border: 0;
+  transition: transform .15s ease, box-shadow .25s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(45,184,75,.32);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(45,184,75,.42); }
+.btn-block { width: 100%; }
+.btn-large { padding: 20px 32px; font-size: 18px; }
+
+.form-trust {
+  display: flex; gap: 14px; margin-top: 16px;
+  justify-content: center;
+  font-size: 12px; color: var(--muted);
+  flex-wrap: wrap;
+}
+.form-trust span { display:inline-flex; align-items:center; gap:6px; }
+.form-trust span::before { content:"✓"; color: var(--green-600); font-weight: 900; }
+
+.form-loading {
+  display: none; text-align: center;
+  color: var(--green-700); font-weight: 700;
+  padding: 12px 0; font-size: 14px;
+}
+.form-loading.show { display: block; }
+.form-card.submitting form { opacity: 0.5; pointer-events: none; }
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--white);
+  padding: 24px;
+  border-top: 1px solid rgba(26,26,26,.06);
+  border-bottom: 1px solid rgba(26,26,26,.06);
+}
+.trust-inner {
+  max-width: 1140px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 32px;
+}
+.trust-item {
+  text-align: center;
+}
+.trust-num {
+  font-size: 26px; font-weight: 800; color: var(--green-700);
+  letter-spacing: -.02em;
+}
+.trust-label {
+  font-size: 12px; color: var(--muted); text-transform: uppercase;
+  letter-spacing: .05em; font-weight: 600; margin-top: 2px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 64px 24px;
+  background: var(--cream);
+}
+.section-inner { max-width: 1140px; margin: 0 auto; }
+.section-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800; letter-spacing: -.025em;
+  text-align: center; margin-bottom: 12px;
+}
+.section-sub {
+  text-align: center; color: var(--muted);
+  font-size: 17px; margin-bottom: 48px;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.testimonial {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-md);
+}
+.stars { color: var(--green-600); margin-bottom: 12px; font-size: 14px; }
+.quote {
+  font-size: 16px; line-height: 1.6;
+  color: var(--ink-soft); margin-bottom: 20px;
+  font-weight: 500;
+}
+.author { display:flex; align-items:center; gap: 12px; }
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  color: #fff; font-weight: 800;
+  display:flex; align-items:center; justify-content:center;
+}
+.author-name { font-weight: 700; font-size: 14px; }
+.author-meta { font-size: 12px; color: var(--muted); }
+
+/* FOOTER */
+.footer {
+  padding: 32px 24px;
+  background: var(--ink);
+  color: rgba(255,255,255,.6);
+  text-align: center;
+  font-size: 13px;
+}
+.footer-brand {
+  color: #fff; font-weight: 700; margin-bottom: 4px;
+}
+
+@media (max-width: 880px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero { padding: 40px 20px 56px; }
+  .form-card { padding: 28px 22px; }
+  .trust-inner { gap: 18px; }
+  .trust-num { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-name">Rentimmo <span>Academy</span></div>
+    </div>
+    <div class="qualiopi-badge">Organisme QUALIOPI</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Masterclass offerte · accès immédiat</div>
+      <h1>
+        Sous-location & conciergerie Airbnb : <span class="highlight">la méthode que j'applique depuis 6 ans</span>
+      </h1>
+      <p class="hero-sub">
+        Sans crédit conventionnel · sans apport · halal-friendly · validée en France comme à l'étranger sur des dizaines de logements.
+      </p>
+      <ul class="hero-bullets">
+        <li>La méthode pour trouver et négocier un bail commercial en moins de 14 jours</li>
+        <li>Le calcul de rentabilité que j'utilise en moins de 90 secondes pour valider un appart</li>
+        <li>Le modèle 100% halal qui démarre avec moins de 4 000€ (zéro crédit conventionnel)</li>
+        <li>Ma stack tech pour gérer plusieurs logements sans répondre aux clients à 3h du matin</li>
+      </ul>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <div class="form-eyebrow">Accès offert · 0€</div>
+      <h2 class="form-title">Reçois ta masterclass maintenant</h2>
+      <p class="form-desc">Renseigne tes infos. Tu accèdes à la vidéo dans 10 secondes.</p>
+
+      <form id="optinForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="Ton prénom">
+          <div class="error-msg" id="errFirstName">Prénom requis</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="ton@email.com">
+          <div class="error-msg" id="errEmail">Email valide requis</div>
+        </div>
+        <div class="form-group">
+          <label for="phone">📱 WhatsApp <span style="color:var(--muted);font-weight:500;font-size:11px;">(je t'envoie la masterclass + bonus en privé)</span></label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+33 6 12 34 56 78">
+          <div class="error-msg" id="errPhone">Numéro WhatsApp requis</div>
+        </div>
+        <input type="hidden" name="source" id="source" value="insta">
+        <button type="submit" class="btn btn-primary btn-block btn-large" id="submitBtn">
+          🎁 J'accède à la masterclass maintenant
+        </button>
+        <div class="form-loading" id="formLoading">⏳ Préparation de ton accès...</div>
+        <div class="form-trust">
+          <span>0€ · gratuit</span>
+          <span>Tes infos sont protégées</span>
+          <span>Désinscription en 1 clic</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-num">+6 ans</div>
+      <div class="trust-label">d'expérience terrain</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">Dizaines</div>
+      <div class="trust-label">de logements gérés</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">FR + 🌍</div>
+      <div class="trust-label">France et étranger</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">QUALIOPI</div>
+      <div class="trust-label">organisme certifié</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-inner">
+    <h2 class="section-title">Ils sont passés à l'action</h2>
+    <p class="section-sub">Témoignages réels de la communauté Rentimmo Academy</p>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"+1 200€/mois nets en 3 mois grâce à la méthode Marwan. Le module sur la négo bail commercial vaut à lui seul l'investissement."</p>
+        <div class="author">
+          <div class="author-avatar">K</div>
+          <div>
+            <div class="author-name">Karim B.</div>
+            <div class="author-meta">Ex-ingénieur · Toulouse</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"Je suis passé de 65% à 92% de taux d'occupation sur mes Airbnb. Marwan ne raconte pas du blabla, il montre les chiffres."</p>
+        <div class="author">
+          <div class="author-avatar">S</div>
+          <div>
+            <div class="author-name">Sami L.</div>
+            <div class="author-meta">Hôte Airbnb · Lyon</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"Reconvertie de l'e-commerce vers la sous-loc. 6 mois après, je dégage un vrai second salaire en restant 100% halal. Merci."</p>
+        <div class="author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Aïcha R.</div>
+            <div class="author-meta">Reconversion · Paris</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">Rentimmo Academy</div>
+  <div>Marwan AFASSI · Organisme de formation certifié QUALIOPI · © 2026</div>
+</footer>
+
+<script>
+// Capture source from URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const source = urlParams.get('src') || urlParams.get('utm_source') || 'insta';
+document.getElementById('source').value = source;
+
+// Form submission
+const form = document.getElementById('optinForm');
+const formCard = document.getElementById('formCard');
+const formLoading = document.getElementById('formLoading');
+
+function showError(field, show) {
+  document.getElementById(field).classList.toggle('error', show);
+  document.getElementById('err' + field.charAt(0).toUpperCase() + field.slice(1)).classList.toggle('show', show);
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const firstName = document.getElementById('firstName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const sourceVal = document.getElementById('source').value;
+
+  let valid = true;
+  if (!firstName) { showError('firstName', true); valid = false; } else { showError('firstName', false); }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', true); valid = false; } else { showError('email', false); }
+  // Phone: required, accept any format with at least 8 digits
+  const phoneDigits = (phone.match(/\d/g) || []).length;
+  if (phoneDigits < 8) { showError('phone', true); valid = false; } else { showError('phone', false); }
+  if (!valid) return;
+
+  formCard.classList.add('submitting');
+  formLoading.classList.add('show');
+
+  try {
+    const resp = await fetch('/.netlify/functions/optin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, email, phone, source: sourceVal })
+    });
+    if (resp.ok) {
+      // Stocke email pour la page suivante (option d'identification + pre-fill cal.com)
+      sessionStorage.setItem('rentimmo_lead_email', email);
+      sessionStorage.setItem('rentimmo_lead_firstName', firstName);
+      window.location.href = '/masterclass.html';
+    } else {
+      const data = await resp.json().catch(() => ({}));
+      // User-friendly messages
+      const friendly = data.message ||
+        (data.error === 'email_not_deliverable'
+          ? "Cette adresse email ne semble pas valide. Vérifie ton email et réessaie."
+          : data.error === 'invalid_email'
+          ? "Email invalide. Vérifie le format (ex: prenom@email.com)."
+          : data.error === 'missing_first_name'
+          ? "Prénom requis."
+          : "Une erreur est survenue. Réessaie dans une minute.");
+      // If email invalid, focus the field
+      if (data.error === 'email_not_deliverable' || data.error === 'invalid_email') {
+        showError('email', true);
+        document.getElementById('email').focus();
+      }
+      alert(friendly);
+      formCard.classList.remove('submitting');
+      formLoading.classList.remove('show');
+    }
+  } catch (err) {
+    alert('Erreur réseau. Vérifie ta connexion et réessaie.');
+    formCard.classList.remove('submitting');
+    formLoading.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>

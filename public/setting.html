@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Setting Hub — Rentimmo Academy (admin)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-600: #2DB84B;
+  --green-700: #1A6B33;
+  --green-300: #5FD87A;
+  --ink: #1A1A1A;
+  --ink-soft: #2D2D2D;
+  --muted: #6B6B6B;
+  --cream: #F7F6F2;
+  --white: #FFFFFF;
+  --orange: #F59E0B;
+  --red: #DC2626;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 24px; }
+
+/* Login */
+.login {
+  max-width: 420px; margin: 80px auto;
+  background: var(--white); padding: 40px 32px;
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(26,107,51,.12);
+  border-top: 4px solid var(--green-600);
+}
+.login h1 { font-size: 22px; margin-bottom: 8px; letter-spacing: -.02em; }
+.login p { color: var(--muted); margin-bottom: 24px; font-size: 14px; }
+.login input {
+  width: 100%; padding: 14px 16px;
+  border: 1.5px solid rgba(26,26,26,.12);
+  border-radius: 12px; font-family: inherit; font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.login input:focus { outline: none; border-color: var(--green-600); }
+.login button {
+  width: 100%; padding: 14px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: white; border: 0; border-radius: 12px;
+  font-family: inherit; font-weight: 800; font-size: 15px;
+  cursor: pointer;
+}
+.login .err { color: var(--red); font-size: 13px; margin-top: 8px; display: none; }
+.login .err.show { display: block; }
+
+/* Dashboard */
+.topbar {
+  background: var(--white);
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(26,26,26,.06);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.brand { display:flex; align-items:center; gap:10px; font-weight:800; }
+.brand-mark {
+  width:32px; height:32px; border-radius:8px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-300));
+  color: white; display:flex; align-items:center; justify-content:center; font-weight:800;
+}
+.title-meta { font-size: 13px; color: var(--muted); }
+.title-meta strong { color: var(--green-700); }
+.btn-logout {
+  background: none; border: 0; color: var(--muted);
+  cursor: pointer; font-size: 13px; font-family: inherit;
+}
+.btn-logout:hover { color: var(--ink); }
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px; margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--white); border-radius: 16px;
+  padding: 20px; box-shadow: 0 4px 12px rgba(26,107,51,.04);
+}
+.stat-num { font-size: 32px; font-weight: 800; color: var(--green-700); letter-spacing: -.02em; }
+.stat-label { color: var(--muted); font-size: 13px; margin-top: 4px; font-weight: 600; }
+
+/* Filters */
+.filters { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.chip {
+  padding: 8px 14px; border-radius: 999px;
+  background: white; border: 1.5px solid rgba(26,26,26,.08);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all .15s ease;
+}
+.chip.active { background: var(--green-700); color: white; border-color: var(--green-700); }
+.chip:hover:not(.active) { border-color: var(--green-600); }
+
+/* Table */
+.table-wrap { background: var(--white); border-radius: 18px; overflow: hidden; box-shadow: 0 4px 12px rgba(26,107,51,.04); }
+table { width: 100%; border-collapse: collapse; }
+thead { background: var(--cream); }
+th, td { padding: 14px 16px; text-align: left; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+tbody tr { border-top: 1px solid rgba(26,26,26,.04); }
+tbody tr:hover { background: rgba(45,184,75,.03); }
+.lead-name { font-weight: 700; }
+.lead-email { color: var(--muted); font-size: 13px; }
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: .03em;
+}
+.badge-insta { background: rgba(225, 48, 108, .12); color: #E1306C; }
+.badge-tiktok { background: rgba(0, 0, 0, .85); color: white; }
+.badge-youtube { background: rgba(255, 0, 0, .12); color: #c00; }
+.badge-unknown { background: rgba(0,0,0,.06); color: var(--muted); }
+.badge-contacted { background: rgba(245, 158, 11, .14); color: var(--orange); }
+
+.age { font-size: 13px; color: var(--muted); font-weight: 600; }
+.age-fresh { color: var(--green-700); }
+.age-warm { color: var(--orange); }
+.age-cold { color: var(--red); }
+
+/* Action buttons */
+.actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #25D366; color: white;
+  padding: 8px 12px; border-radius: 10px;
+  font-size: 12px; font-weight: 700;
+  text-decoration: none;
+  border: 0; cursor: pointer; font-family: inherit;
+}
+.btn-wa:hover { background: #1ebd5a; }
+.btn-wa.cold { background: #555; }
+.btn-mark {
+  background: var(--cream); color: var(--ink-soft);
+  padding: 8px 12px; border-radius: 10px;
+  font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(26,26,26,.08);
+  cursor: pointer; font-family: inherit;
+}
+.btn-mark.unmark { background: rgba(245, 158, 11, .12); color: var(--orange); border-color: rgba(245,158,11,.3); }
+
+.empty { padding: 60px 24px; text-align: center; color: var(--muted); }
+.empty h3 { font-size: 22px; color: var(--green-700); margin-bottom: 8px; }
+
+.loading { text-align: center; padding: 60px 24px; color: var(--muted); font-weight: 600; }
+.error { padding: 24px; background: rgba(220,38,38,.08); color: var(--red); border-radius: 12px; margin-bottom: 16px; font-weight: 600; }
+
+/* Modal scripts */
+.script-modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none; align-items: center; justify-content: center;
+  z-index: 1000; padding: 20px;
+}
+.script-modal.show { display: flex; }
+.script-content {
+  background: white; border-radius: 24px;
+  padding: 32px; max-width: 600px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+}
+.script-content h3 { font-size: 20px; margin-bottom: 16px; }
+.script-content textarea {
+  width: 100%; min-height: 180px;
+  padding: 14px; border: 1.5px solid rgba(26,26,26,.12);
+  border-radius: 12px; font-family: inherit; font-size: 14px;
+  margin-bottom: 16px; resize: vertical;
+}
+.script-content .btn-primary {
+  background: #25D366; color: white;
+  padding: 12px 24px; border-radius: 12px; border: 0;
+  font-family: inherit; font-weight: 800; cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.modal-actions { display: flex; gap: 12px; }
+.btn-cancel {
+  background: var(--cream); color: var(--ink-soft);
+  padding: 12px 20px; border-radius: 12px; border: 0;
+  font-family: inherit; font-weight: 700; cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="loginScreen" class="login">
+  <h1>Setting Hub</h1>
+  <p>Mot de passe admin requis pour accéder au dashboard.</p>
+  <form id="loginForm">
+    <input type="password" id="passwordInput" placeholder="Mot de passe" required autofocus>
+    <button type="submit">Connexion</button>
+    <div class="err" id="loginErr">Mot de passe incorrect.</div>
+  </form>
+</div>
+
+<div id="dashboard" style="display:none">
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div>Setting Hub <span class="title-meta">· Rentimmo Academy</span></div>
+    </div>
+    <button class="btn-logout" onclick="logout()">Déconnexion</button>
+  </div>
+
+  <div class="container">
+    <div class="stats-row" id="statsRow"></div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-filter="todo">À setter</button>
+      <button class="chip" data-filter="contacted">Déjà contactés</button>
+      <button class="chip" data-filter="all">Tous</button>
+      <button class="chip" style="margin-left:auto;background:#1A6B33;color:white;border-color:#1A6B33;" onclick="openPlaybook()">📖 Playbook réponses</button>
+    </div>
+    <div id="content"><div class="loading">Chargement des leads...</div></div>
+  </div>
+</div>
+
+<div class="script-modal" id="scriptModal">
+  <div class="script-content">
+    <h3 id="scriptTitle">Script WhatsApp</h3>
+    <p style="color:var(--muted);margin-bottom:14px;font-size:13px;">Tu peux ajuster le texte avant d'envoyer. Le clic sur "Envoyer" ouvre WhatsApp avec ce message pré-rempli.</p>
+    <textarea id="scriptText"></textarea>
+    <div class="modal-actions">
+      <a id="waLink" href="#" class="btn-primary" target="_blank">📱 Envoyer sur WhatsApp</a>
+      <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- Playbook réponses modal -->
+<div class="script-modal" id="playbookModal">
+  <div class="script-content" style="max-width:780px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <h3 style="margin:0;">📖 Playbook réponses WhatsApp</h3>
+      <button class="btn-cancel" onclick="closePlaybook()">Fermer</button>
+    </div>
+    <p style="color:var(--muted);margin-bottom:20px;font-size:13px;">Quand un lead te répond, trouve sa réponse type ci-dessous et clique "Copier". Tu colles dans WhatsApp et tu envoies.</p>
+    <div id="playbookList"></div>
+  </div>
+</div>
+
+<style>
+.reply-card {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--green-600);
+}
+.reply-pattern {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.reply-pattern::before { content: "💬 "; }
+.reply-template {
+  background: white;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  border: 1px solid rgba(26,26,26,.06);
+}
+.btn-copy {
+  background: var(--green-700);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-copy.copied { background: var(--orange); }
+</style>
+
+<script>
+const API = '/.netlify/functions/setting-leads';
+const PWD_KEY = 'rentimmo_setting_pwd';
+
+let currentLeads = [];
+let currentFilter = 'todo';
+
+// -------- AUTH --------
+const stored = localStorage.getItem(PWD_KEY);
+if (stored) tryAuth(stored);
+
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const pwd = document.getElementById('passwordInput').value;
+  tryAuth(pwd);
+});
+
+async function tryAuth(pwd) {
+  document.getElementById('loginErr').classList.remove('show');
+  try {
+    const resp = await fetch(API, { headers: { 'X-Setting-Password': pwd } });
+    if (resp.status === 401) {
+      document.getElementById('loginErr').classList.add('show');
+      localStorage.removeItem(PWD_KEY);
+      return;
+    }
+    if (!resp.ok) {
+      document.getElementById('loginErr').textContent = 'Erreur serveur. Réessaie.';
+      document.getElementById('loginErr').classList.add('show');
+      return;
+    }
+    const data = await resp.json();
+    localStorage.setItem(PWD_KEY, pwd);
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    currentLeads = data.leads || [];
+    render();
+  } catch (e) {
+    document.getElementById('loginErr').textContent = 'Erreur réseau.';
+    document.getElementById('loginErr').classList.add('show');
+  }
+}
+
+function logout() {
+  localStorage.removeItem(PWD_KEY);
+  location.reload();
+}
+
+// -------- FILTERS --------
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.filter;
+    render();
+  });
+});
+
+// -------- RENDER --------
+function render() {
+  // Stats
+  const total = currentLeads.length;
+  const todo = currentLeads.filter(l => !l.isContacted).length;
+  const contacted = currentLeads.filter(l => l.isContacted).length;
+  document.getElementById('statsRow').innerHTML = `
+    <div class="stat-card"><div class="stat-num">${todo}</div><div class="stat-label">À setter aujourd'hui</div></div>
+    <div class="stat-card"><div class="stat-num">${contacted}</div><div class="stat-label">Déjà contactés</div></div>
+    <div class="stat-card"><div class="stat-num">${total}</div><div class="stat-label">Total optin sans call</div></div>
+  `;
+
+  let filtered = currentLeads;
+  if (currentFilter === 'todo') filtered = currentLeads.filter(l => !l.isContacted);
+  if (currentFilter === 'contacted') filtered = currentLeads.filter(l => l.isContacted);
+
+  const container = document.getElementById('content');
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="table-wrap">
+        <div class="empty">
+          <h3>${currentFilter === 'todo' ? '✅ Aucun lead à setter' : 'Aucun lead'}</h3>
+          <p>${currentFilter === 'todo' ? 'Tous les optin ont été contactés ou ont booké.' : 'Pas de leads dans cette catégorie.'}</p>
+        </div>
+      </div>`;
+    return;
+  }
+
+  const rows = filtered.map(lead => {
+    const ageMs = Date.now() - new Date(lead.registeredAt).getTime();
+    const ageHours = Math.floor(ageMs / 3600000);
+    const ageDays = Math.floor(ageHours / 24);
+    const ageText = ageDays > 0 ? `${ageDays}j` : `${ageHours}h`;
+    const ageClass = ageHours < 6 ? 'age-fresh' : ageHours < 48 ? 'age-warm' : 'age-cold';
+    // 4 stages: J+0 (<6h), J+1 (6-30h), J+2 (30-54h), J+3 (>54h)
+    const stage = ageHours < 6 ? 'j0' : ageHours < 30 ? 'j1' : ageHours < 54 ? 'j2' : 'j3';
+
+    const sourceBadge = lead.source
+      ? `<span class="badge badge-${lead.source}">${lead.source.toUpperCase()}</span>`
+      : '<span class="badge badge-unknown">?</span>';
+
+    const contactedBadge = lead.isContacted
+      ? '<span class="badge badge-contacted">📨 contacté</span>'
+      : '';
+
+    return `
+      <tr>
+        <td>
+          <div class="lead-name">${escapeHtml(lead.firstName || '—')}</div>
+          <div class="lead-email">${escapeHtml(lead.email)}</div>
+        </td>
+        <td>${escapeHtml(lead.phone || '—')}</td>
+        <td>${sourceBadge}</td>
+        <td><span class="age ${ageClass}">il y a ${ageText}</span></td>
+        <td>${contactedBadge}</td>
+        <td>
+          <div class="actions">
+            ${lead.phone ? `<button class="btn-wa ${stage === 'j3' ? 'cold' : ''}" onclick="openScript('${lead.id}', '${escapeAttr(lead.firstName)}', '${escapeAttr(lead.phone)}', '${stage}')">📱 ${stage.toUpperCase()}</button>` : ''}
+            ${lead.isContacted
+              ? `<button class="btn-mark unmark" onclick="markLead('${lead.id}', 'unmark')">↺ démarquer</button>`
+              : `<button class="btn-mark" onclick="markLead('${lead.id}', 'mark')">✓ setté</button>`
+            }
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Lead</th>
+            <th>WhatsApp</th>
+            <th>Source</th>
+            <th>Optin</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+// -------- SCRIPTS WHATSAPP (4 messages : J+0, J+1, J+2, J+3) --------
+const SCRIPTS = {
+  j0: (firstName) => `Salut ${firstName} 👋
+
+C'est Marwan de Rentimmo Academy.
+
+Je vois que t'as récupéré la masterclass tout à l'heure 🙌
+
+T'as eu le temps de la regarder ou pas encore ?`,
+  j1: (firstName) => `Salut ${firstName},
+
+J'espère que la masterclass t'a plu hier.
+
+T'es plutôt du genre à te lancer dans la sous-loc/conciergerie, OU t'as déjà des biens et tu veux les optimiser ?
+
+(Histoire que je t'oriente sur la bonne formule)`,
+  j2: (firstName) => `Salut ${firstName},
+
+Vu que je t'ai pas encore eu, je voulais pas te lâcher 😄
+
+J'ouvre 3 créneaux de 30 min cette semaine pour les personnes qui veulent passer à l'action.
+
+C'est gratuit, 0 obligation derrière.
+
+→ https://cal.com/rentimmo-academy/appel-strategique
+
+Tu peux me dire ce qui te freine pour qu'on regarde ensemble ?`,
+  j3: (firstName) => `Salut ${firstName},
+
+Dernier message promis 😅
+
+J'ai aidé un Karim qui a démarré comme toi (ex-ingé, 0 expérience). Il fait +1 200€/mois aujourd'hui.
+
+Si t'es chaud pour qu'on regarde TA situation ensemble, j'ai un créneau cette semaine.
+
+→ https://cal.com/rentimmo-academy/appel-strategique
+
+Sinon, je te dérange plus, no stress.`,
+};
+
+// -------- PLAYBOOK RÉPONSES --------
+const REPLIES = [
+  {
+    pattern: 'Oui je veux booker / un créneau / OK pour le call',
+    template: `Top 🙌
+
+Réserve direct ici, c'est en libre-service :
+
+→ https://cal.com/rentimmo-academy/appel-strategique
+
+À très vite !`
+  },
+  {
+    pattern: 'Pas le temps maintenant / je suis débordé / pas dispo',
+    template: `Pas de souci.
+
+Tu veux qu'on cale ça pour la semaine prochaine ?
+
+J'ai des créneaux mardi soir et jeudi midi notamment.`
+  },
+  {
+    pattern: 'Pas intéressé / pas pour moi',
+    template: `Aucun problème, je respecte.
+
+Juste curieux pour améliorer mon contenu : qu'est-ce qui t'a freiné ? (ça m'aide vraiment)
+
+Bonne continuation 🙏`
+  },
+  {
+    pattern: 'Combien ça coûte / quel est le tarif',
+    template: `Le prix dépend de ta situation et du programme qui te correspond.
+
+C'est exactement ce qu'on regarde ensemble pendant les 30 min de call : ton contexte, tes objectifs, et si oui je te dis combien ça coûte selon ton profil.
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+  {
+    pattern: 'Comment ça marche concrètement',
+    template: `Trop long pour expliquer en DM 😅
+
+C'est exactement ce qu'on couvre en 30 min de call : je te montre ma méthode appliquée à TON contexte.
+
+Tu peux quand cette semaine ?
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+  {
+    pattern: 'J\'ai déjà un Airbnb / je suis proprio',
+    template: `Ah top !
+
+Du coup je te switch sur ma seconde formule : Super BnB Academy.
+
+C'est pour les hôtes déjà lancés qui veulent optimiser revenus + taux d'occupation.
+
+→ Audit gratuit 30 min : https://cal.com/rentimmo-academy/superbnbacademy
+
+On regarde tes annonces ensemble, je te donne 3 axes concrets.`
+  },
+  {
+    pattern: 'Je suis salarié / pas de budget pour me lancer',
+    template: `Et pourtant, c'est exactement le profil que j'accompagne le plus 🙌
+
+Ma méthode démarre à 3-4k€ d'investissement initial (vs 50k€ qu'on te raconte ailleurs avec un crédit immo).
+
+C'est le modèle 100% halal sans crédit conventionnel.
+
+On en parle ?
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+  {
+    pattern: 'C\'est saturé / il y en a trop / pas dans ma ville',
+    template: `Tu sais qu'en France t'as 158k Airbnb pour 67M habitants ? Aux US ils en ont 2,4M pour 330M.
+
+On a 4× moins d'offre par rapport à la population.
+
+Saturé, c'est quand y'a plus de place. Là on est même pas au quart du marché potentiel.
+
+Le vrai sujet c'est la réglementation, et c'est ce qui élimine la concurrence pour ceux qui se forment correctement.
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+  {
+    pattern: 'C\'est légal ? / Y a pas un risque ?',
+    template: `100% légal, à condition de signer le bon type de bail.
+
+C'est exactement ce que ma formation te montre : la méthode pour signer un bail commercial qui T'AUTORISE explicitement la sous-location.
+
+On voit ça en call ensemble, tu auras toutes les réponses.
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+  {
+    pattern: 'Je vais réfléchir',
+    template: `Pas de souci.
+
+Réfléchir à quoi exactement ? Le timing, le budget, la méthode ?
+
+Si je peux t'aider à débloquer le truc, dis-moi.`
+  },
+  {
+    pattern: 'Pourquoi un call ? / Tu peux pas répondre par message ?',
+    template: `Parce que ton cas est unique et que je donne pas les mêmes réponses à tout le monde.
+
+En 30 min de call, on regarde TA situation, je te donne MES réponses. C'est plus rapide qu'un long DM et c'est gratuit.
+
+→ https://cal.com/rentimmo-academy/appel-strategique`
+  },
+];
+
+
+let pendingContactId = null;
+
+function openScript(contactId, firstName, phone, stage) {
+  pendingContactId = contactId;
+  const text = SCRIPTS[stage](firstName || 'toi');
+  document.getElementById('scriptText').value = text;
+  document.getElementById('scriptTitle').innerHTML = `Script ${stage.toUpperCase()} pour <strong>${escapeHtml(firstName || phone)}</strong>`;
+  // wa.me link rebuild on each text change
+  const updateLink = () => {
+    const cleaned = phone.replace(/\D/g, '').replace(/^0/, '33');
+    const t = encodeURIComponent(document.getElementById('scriptText').value);
+    document.getElementById('waLink').href = `https://wa.me/${cleaned}?text=${t}`;
+  };
+  document.getElementById('scriptText').addEventListener('input', updateLink);
+  updateLink();
+  document.getElementById('scriptModal').classList.add('show');
+
+  // When user clicks send, mark as contacted automatically
+  document.getElementById('waLink').onclick = () => {
+    setTimeout(() => {
+      markLead(contactId, 'mark');
+      closeModal();
+    }, 200);
+  };
+}
+
+function closeModal() {
+  document.getElementById('scriptModal').classList.remove('show');
+}
+
+async function markLead(contactId, action) {
+  const pwd = localStorage.getItem(PWD_KEY);
+  await fetch(API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Setting-Password': pwd },
+    body: JSON.stringify({ contactId, action }),
+  });
+  // Reload data
+  const resp = await fetch(API, { headers: { 'X-Setting-Password': pwd } });
+  if (resp.ok) {
+    const data = await resp.json();
+    currentLeads = data.leads || [];
+    render();
+  }
+}
+
+function escapeHtml(s) { return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s) { return String(s || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;'); }
+
+// -------- PLAYBOOK MODAL --------
+function openPlaybook() {
+  const html = REPLIES.map((r, i) => `
+    <div class="reply-card">
+      <div class="reply-pattern">Si le lead dit : "${escapeHtml(r.pattern)}"</div>
+      <div class="reply-template">${escapeHtml(r.template)}</div>
+      <button class="btn-copy" data-idx="${i}" onclick="copyReply(${i}, this)">📋 Copier la réponse</button>
+    </div>
+  `).join('');
+  document.getElementById('playbookList').innerHTML = html;
+  document.getElementById('playbookModal').classList.add('show');
+}
+function closePlaybook() {
+  document.getElementById('playbookModal').classList.remove('show');
+}
+function copyReply(idx, btn) {
+  const text = REPLIES[idx].template;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ Copié !';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copier la réponse';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
